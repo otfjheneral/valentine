@@ -5,15 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>For Lydia ❤️</title>
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       height: 100vh;
@@ -23,7 +18,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
+      color: #000;
     }
 
     .page {
@@ -37,20 +32,18 @@
       padding: 20px;
     }
 
-    .page.active {
-      display: flex;
-    }
+    .page.active { display: flex; }
 
     h1 {
-      font-family: 'Great Vibes', cursive;
+      font-family: 'Times New Roman', cursive;
       font-size: 3rem;
       margin-bottom: 20px;
     }
 
     p {
-      font-size: 1.2rem;
-      line-height: 1.7;
-      max-width: 700px;
+      font-size: 1.15rem;
+      line-height: 1.8;
+      max-width: 720px;
       margin: 0 auto 30px;
     }
 
@@ -58,7 +51,6 @@
       display: flex;
       gap: 20px;
       justify-content: center;
-      margin-top: 20px;
     }
 
     button {
@@ -70,42 +62,23 @@
       transition: transform 0.2s ease;
     }
 
-    .yes {
-      background: #ff4d6d;
-      color: #fff;
-    }
+    .yes { background: #ff4d6d; color: #fff; }
+    .no { background: #fff; color: #ff4d6d; position: relative; }
 
-    .no {
-      background: #fff;
-      color: #ff4d6d;
-      position: relative;
-    }
-
-    button:hover {
-      transform: scale(1.05);
-    }
+    button:hover { transform: scale(1.05); }
 
     /* Floating Hearts */
     .heart {
       position: absolute;
       bottom: -20px;
-      font-size: 20px;
       animation: floatUp 8s linear infinite;
       opacity: 0.7;
     }
 
     @keyframes floatUp {
-      0% {
-        transform: translateY(0) scale(1);
-        opacity: 0;
-      }
-      10% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-110vh) scale(1.5);
-        opacity: 0;
-      }
+      0% { transform: translateY(0) scale(1); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
     }
 
     /* Confetti */
@@ -113,107 +86,165 @@
       position: absolute;
       width: 8px;
       height: 14px;
-      background-color: red;
       animation: confettiFall 3s linear forwards;
     }
 
     @keyframes confettiFall {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(100vh) rotate(720deg);
-        opacity: 0;
-      }
+      from { transform: translateY(0) rotate(0deg); opacity: 1; }
+      to { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+    }
+
+    /* Fireworks */
+    .firework {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      animation: explode 1.2s ease-out forwards;
+    }
+
+    @keyframes explode {
+      from { transform: scale(0); opacity: 1; }
+      to { transform: scale(18); opacity: 0; }
     }
   </style>
 </head>
 <body>
 
-  <!-- PAGE 1 -->
-  <div class="page active" id="proposal">
-    <div>
-      <h1>Lydia Nana Yaa Tawiah Yeboah ❤️</h1>
-      <p>
-        My heart has a simple question…<br><br>
-        Will you be my Valentine?
-      </p>
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_2b5c01bb61.mp3" type="audio/mpeg">
+</audio>
 
-      <div class="buttons">
-        <button class="yes" onclick="sayYes()">Yes 💕</button>
-        <button class="no" id="noBtn">No😢</button>
-      </div>
+<div class="page active" id="proposal">
+  <div>
+    <h1><b>Lydia Nana Yaa Tawiah Yeboah ❤️</b></h1>
+    <p>My heart has a simple question…<br><br>Will you be my Valentine?</p>
+    <div class="buttons">
+      <button class="yes" onclick="sayYes()">Yes 💖</button>
+      <button class="no" id="noBtn">No 🙈</button>
     </div>
   </div>
+</div>
 
-  <!-- PAGE 2 -->
-  <div class="page" id="message">
-    <div>
-      <h1>My Valentine 💕</h1>
-      <p>
-        Last year, you were my Valentine.  
-        This year, I want you to be my Valentine again.  
-        <br><br>
-        Thank you for giving me the chance again to be your Valentine.  
-        I love you.
-        <br><br>
-        There’s a dress coming your way and a bone-straight hair.  
-        I’m not there in person to take you out on a date,  
-        but we can do a virtual date.
-        <br><br>
-        Babe, dress up — an Uber will pick you up at 7pm.
-        <br><br>
-        With love,  
-        <br>
-        <strong>Joseph ❤️</strong>
-      </p>
-    </div>
+<div class="page" id="message">
+  <div id="finalMessage">
+    <h1><b>My Valentine 💕</b></h1>
+    <p>
+      Last year, you were my Valentine.  
+      This year, I want you to be my Valentine again.
+      <br><br>
+      If you are seeing this, that means you clicked on yes 😁thank you for saying yes and for giving me the chance once more to be your Valentine.  
+      I love you deeply.
+      <br><br>
+      There’s a dress on the way for you, along with a bone-straight hair.  
+      I may not be there in person to take you out, but we can make it special with a virtual date.
+      <br><br>
+      Babe, dress up — an Uber will pick you up at 7:00 PM.
+      <br><br>
+      With love,<br><strong>Joseph ❤️</strong>
+    </p>
   </div>
+</div>
 
-  <script>
-    // Floating hearts
-    setInterval(() => {
-      const heart = document.createElement('div');
-      heart.className = 'heart';
-      heart.innerHTML = '❤️';
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.fontSize = Math.random() * 20 + 15 + 'px';
-      heart.style.animationDuration = Math.random() * 3 + 6 + 's';
-      document.body.appendChild(heart);
+<script>
+  // Floating hearts
+  setInterval(() => {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.innerHTML = '❤️';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.fontSize = Math.random() * 20 + 16 + 'px';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 8000);
+  }, 350);
 
-      setTimeout(() => heart.remove(), 8000);
-    }, 400);
+  // No button escape
+  document.getElementById('noBtn').addEventListener('mouseover', e => {
+    e.target.style.transform =
+      `translate(${Math.random()*220 - 110}px, ${Math.random()*220 - 110}px)`;
+  });
 
-    // No button escape
-    const noBtn = document.getElementById('noBtn');
-    noBtn.addEventListener('mouseover', () => {
-      noBtn.style.transform = `translate(${Math.random()*200 - 100}px, ${Math.random()*200 - 100}px)`;
-    });
+  let audioCtx, analyser, dataArray;
 
-    // Yes action
-    function sayYes() {
-      confettiBlast();
-      setTimeout(() => {
-        document.getElementById('proposal').classList.remove('active');
-        document.getElementById('message').classList.add('active');
-      }, 1200);
+  function setupAudioReactiveGlow() {
+    const audio = document.getElementById('music');
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    analyser = audioCtx.createAnalyser();
+    analyser.fftSize = 256;
+    dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+    const source = audioCtx.createMediaElementSource(audio);
+    source.connect(analyser);
+    analyser.connect(audioCtx.destination);
+
+    animateGlow();
+  }
+
+  function animateGlow() {
+    analyser.getByteFrequencyData(dataArray);
+    let avg = dataArray.reduce((a, b) => a + b, 0) / dataArray.length;
+
+    const glowStrength = avg / 255 * 50;
+
+    document.body.style.boxShadow =
+      `inset 0 0 ${glowStrength}px rgba(255,77,109,0.9)`;
+
+    requestAnimationFrame(animateGlow);
+  }
+
+  function sayYes() {
+    const music = document.getElementById('music');
+    music.play();
+    setupAudioReactiveGlow();
+    confettiBlast();
+    fireworks();
+    heartExplosion();
+
+    setTimeout(() => {
+      document.getElementById('proposal').classList.remove('active');
+      document.getElementById('message').classList.add('active');
+    }, 1200);
+  }
+
+  function confettiBlast() {
+    for (let i = 0; i < 140; i++) {
+      const c = document.createElement('div');
+      c.className = 'confetti';
+      c.style.left = Math.random() * 100 + 'vw';
+      c.style.backgroundColor = `hsl(${Math.random()*360},100%,60%)`;
+      document.body.appendChild(c);
+      setTimeout(() => c.remove(), 3000);
     }
+  }
 
-    // Confetti
-    function confettiBlast() {
-      for (let i = 0; i < 120; i++) {
-        const confetti = document.createElement('div');
-        confetti.className = 'confetti';
-        confetti.style.left = Math.random() * 100 + 'vw';
-        confetti.style.backgroundColor = `hsl(${Math.random()*360}, 100%, 60%)`;
-        confetti.style.animationDuration = Math.random() * 2 + 2 + 's';
-        document.body.appendChild(confetti);
-
-        setTimeout(() => confetti.remove(), 3000);
-      }
+  function fireworks() {
+    for (let i = 0; i < 20; i++) {
+      const f = document.createElement('div');
+      f.className = 'firework';
+      f.style.left = Math.random() * 100 + 'vw';
+      f.style.top = Math.random() * 50 + 'vh';
+      f.style.background = `hsl(${Math.random()*360},100%,60%)`;
+      document.body.appendChild(f);
+      setTimeout(() => f.remove(), 1200);
     }
-  </script>
+  }
+
+  function heartExplosion() {
+    for (let i = 0; i < 25; i++) {
+      const h = document.createElement('div');
+      h.innerHTML = '💖';
+      h.style.position = 'absolute';
+      h.style.left = '50%';
+      h.style.top = '50%';
+      h.style.fontSize = '24px';
+      h.style.transform =
+        `translate(${Math.random()*300 - 150}px, ${Math.random()*300 - 150}px)`;
+      h.style.transition = 'all 1.2s ease-out';
+      document.body.appendChild(h);
+      setTimeout(() => h.remove(), 1200);
+    }
+  }
+</script>
 
 </body>
 </html>
